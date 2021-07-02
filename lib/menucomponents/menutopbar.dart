@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class MenuTopBar extends StatelessWidget {
   const MenuTopBar({
@@ -31,7 +32,7 @@ class MenuTopBar extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal:30.0,vertical: 10),
-          child: Text('24 March, Monday'),
+          child: Text('24 March, Monday',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),),
         ),
       ],
     );
