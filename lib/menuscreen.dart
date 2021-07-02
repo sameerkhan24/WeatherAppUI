@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:weatherappui/menucomponents/menutopbar.dart';
 import 'package:weatherappui/menucomponents/weathercard.dart';
+import 'package:weatherappui/weatherscreen.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({ Key? key }) : super(key: key);
@@ -110,7 +111,9 @@ class WeatherCardScroll extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 30.0),
-            child: WeatherCard(place: 'New York',temp: '23°',imgurl: 'assets/8.png',),
+            child: GestureDetector(
+              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context){return WeatherScreen();}));},
+              child: WeatherCard(place: 'New York',temp: '23°',imgurl: 'assets/8.png',)),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 30.0),
