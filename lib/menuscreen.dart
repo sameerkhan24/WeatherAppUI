@@ -115,9 +115,12 @@ class WeatherCardScroll extends StatelessWidget {
               onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context){return WeatherScreen();}));},
               child: WeatherCard(place: 'New York',temp: '23°',imgurl: 'assets/8.png',)),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30.0),
-            child: WeatherCard(place: 'London',temp: '30°',imgurl: 'assets/27.png',),
+          GestureDetector(
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context){return WeatherScreen();}));},
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30.0),
+              child: WeatherCard(place: 'London',temp: '30°',imgurl: 'assets/27.png',),
+            ),
           ),
         ],
       ),

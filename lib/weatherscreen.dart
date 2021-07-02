@@ -29,6 +29,7 @@ class WeatherScreen extends StatelessWidget {
         children: [
           HomePageBackground(screenHeight: MediaQuery.of(context).size.height),
           SafeArea(
+            bottom: false,
             child: Container(
               width: double.infinity,
               child: Column(
@@ -41,12 +42,93 @@ class WeatherScreen extends StatelessWidget {
                   HumidTempWind(),
                   SizedBox(height: 20,),
                   HighLowModText(),
-                  
+                  SizedBox(height: 20,),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        DayWeatherCard(imgurl: 'assets/26.png',temp: '29°',day: 'Tomorrow',scale: 25.0,),
+                        DayWeatherCard(imgurl: 'assets/27.png',temp: '27°',day: 'Saturday',scale: 33.0),
+                        DayWeatherCard(imgurl: 'assets/28.png',temp: '22°',day: 'Sunday',scale: 20.0),
+                        DayWeatherCard(imgurl: 'assets/8.png',temp: '21°',day: 'Monday',scale: 35.0)
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class DayWeatherCard extends StatelessWidget {
+  String imgurl, temp, day;
+  double scale;
+   // ignore: use_key_in_widget_constructors
+   DayWeatherCard({
+    required this.imgurl,
+    required this.temp,
+    required this.day,
+    required this.scale,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 30.0),
+      child: Container(
+        height: 170,
+        width: 100,
+        color: Colors.transparent,
+        child: Stack(
+          children: [
+            Positioned(
+              top: 30,
+              child: Container(
+                width: 100,
+                height: 110,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  boxShadow: [
+            BoxShadow(
+          color: Colors.blue.withOpacity(0.3),
+          spreadRadius: 1,
+          blurRadius: 20,
+          offset: Offset(0, 3), // changes position of shadow
+        ),
+          ],
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Column(
+                children: [
+                  Image.asset(imgurl,scale: scale,),
+                  SizedBox(height: 10,),
+                  Row(
+                    children: [
+                      SizedBox(width: 30,),
+                      Text(temp,
+                      style: TextStyle(
+                        fontSize: 32,
+                        color: Colors.black.withOpacity(0.7)
+                      ),
+                      ),
+                    ],
+                  ),
+                ],
+              )),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Text(day),
+                )
+          ],
+        ),
       ),
     );
   }
