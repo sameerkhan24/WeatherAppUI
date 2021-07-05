@@ -30,31 +30,33 @@ class WeatherScreen extends StatelessWidget {
           HomePageBackground(screenHeight: MediaQuery.of(context).size.height),
           SafeArea(
             bottom: false,
-            child: Container(
-              width: double.infinity,
-              child: Column(
-                children: [
-                  SizedBox(height: 10,),
-                  CityText(),
-                  SizedBox(height: 20,),
-                  Image.asset('assets/27.png',scale: 10,),
-                  SizedBox(height: 20,),
-                  HumidTempWind(),
-                  SizedBox(height: 20,),
-                  HighLowModText(),
-                  SizedBox(height: 20,),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        DayWeatherCard(imgurl: 'assets/26.png',temp: '29°',day: 'Tomorrow',scale: 25.0,),
-                        DayWeatherCard(imgurl: 'assets/27.png',temp: '27°',day: 'Saturday',scale: 33.0),
-                        DayWeatherCard(imgurl: 'assets/28.png',temp: '22°',day: 'Sunday',scale: 20.0),
-                        DayWeatherCard(imgurl: 'assets/8.png',temp: '21°',day: 'Monday',scale: 35.0)
-                      ],
+            child: SingleChildScrollView(
+              child: Container(
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    SizedBox(height: 10,),
+                    CityText(),
+                    SizedBox(height: 20,),
+                    Image.asset('assets/27.png',scale: 10,),
+                    SizedBox(height: 20,),
+                    HumidTempWind(),
+                    SizedBox(height: 20,),
+                    HighLowModText(),
+                    SizedBox(height: 20,),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          DayWeatherCard(imgurl: 'assets/26.png',temp: '29°',day: 'Tomorrow',scale: 25.0,),
+                          DayWeatherCard(imgurl: 'assets/27.png',temp: '27°',day: 'Saturday',scale: 34.0),
+                          DayWeatherCard(imgurl: 'assets/28.png',temp: '22°',day: 'Sunday',scale: 20.0),
+                          DayWeatherCard(imgurl: 'assets/8.png',temp: '21°',day: 'Monday',scale: 35.0)
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
