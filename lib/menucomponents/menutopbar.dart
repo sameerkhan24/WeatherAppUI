@@ -25,10 +25,14 @@ class MenuTopBar extends StatelessWidget {
                 fontWeight: FontWeight.bold
               ),
               ),
-              CircleAvatar(
-                      radius: 25,
-                      backgroundImage: AssetImage('assets/man.jpeg') ,
-                    )
+              Container(
+                         height: 8.5714 * SizeConfig.heightMultiplier,
+                         width: 12.7294 * SizeConfig.widthMultiplier,
+                         child: CircleAvatar(
+                                radius: 20,
+                                backgroundImage: AssetImage('assets/man.jpeg') ,
+                              ),
+                       )
             ],
           ),
         ),

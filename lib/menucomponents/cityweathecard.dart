@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weatherappui/size_config.dart';
 
 class CityWeatherCard extends StatelessWidget {
     String place;
@@ -19,12 +20,17 @@ class CityWeatherCard extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(place,style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 20),),
-            SizedBox(height: 10,),
-            Text(temp,style: TextStyle(fontSize: 56,color: Color(0xFF00185F),fontWeight: FontWeight.bold),),
+            Text(place,style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 2.23214 * SizeConfig.textMultiplier),),
+            SizedBox(height: 1.116 * SizeConfig.heightMultiplier,),
+            Text(temp,style: TextStyle(fontSize: 6.25 * SizeConfig.textMultiplier,color: Color(0xFF00185F),fontWeight: FontWeight.bold),),
           ],
         ),
-          Image.asset(imgurl,scale: 25,)
+          Container(child: Image.asset(
+            imgurl,
+            fit: BoxFit.contain,
+            height: 12 * SizeConfig.heightMultiplier
+            ),
+            )
       ],
     );
   }

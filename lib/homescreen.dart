@@ -195,10 +195,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                           ),
-                          const CircleAvatar(
-                            radius: 25,
-                            backgroundImage: AssetImage('assets/man.jpeg') ,
-                          )
+                          Container(
+                         height: 5.2714 * SizeConfig.heightMultiplier,
+                         width: 10.7294 * SizeConfig.widthMultiplier,
+                         child: CircleAvatar(
+                                
+                                backgroundImage: AssetImage('assets/man.jpeg') ,
+                              ),
+                       )
                         ],
                       ),
                     ),

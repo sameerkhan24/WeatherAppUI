@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:weatherappui/menucomponents/menutopbar.dart';
 import 'package:weatherappui/menucomponents/weathercard.dart';
+import 'package:weatherappui/size_config.dart';
 import 'package:weatherappui/weatherscreen.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -24,35 +25,40 @@ class MenuScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 MenuTopBar(),
-                SizedBox(height: 40,),
+                SizedBox(height: 4.46428 * SizeConfig.heightMultiplier,),
                 WeatherCardScroll(),
-                SizedBox(height: 10,),
+                SizedBox(height: 1.116 * SizeConfig.heightMultiplier,),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:30.0,vertical: 30),
-                  child: Text('Your favorite',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                  padding: EdgeInsets.symmetric(horizontal:7.23637 * SizeConfig.widthMultiplier,vertical: 3.348214 * SizeConfig.heightMultiplier),
+                  child: Text('Your favorite',style: TextStyle(fontSize: 2.79 * SizeConfig.heightMultiplier,fontWeight: FontWeight.bold),),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:30.0),
+                  padding: EdgeInsets.symmetric(horizontal:7.23637 * SizeConfig.widthMultiplier),
                   child: Container(
                     width: double.infinity,
-                    height: 200,
+                    height: 22.3214 * SizeConfig.heightMultiplier,
                     decoration: BoxDecoration(
                     color: Color(0xFFE3F1F9),
                     borderRadius: BorderRadius.circular(25)
                       ),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(25.0),
+                          padding: EdgeInsets.symmetric(vertical: 2.79 * SizeConfig.heightMultiplier,horizontal: 6 * SizeConfig.widthMultiplier),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Text('Los Angeles',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 20),),
-              Text('12°',style: TextStyle(fontSize: 70,color: Color(0xFF00185F),fontWeight: FontWeight.bold),),
+                              Text('Los Angeles',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 2.23214 * SizeConfig.heightMultiplier),),
+              Text('12°',style: TextStyle(fontSize: 7.8125 * SizeConfig.heightMultiplier,color: Color(0xFF00185F),fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
-                        Image.asset('assets/39.png',scale: 10,)
+                        Container(child: Image.asset(
+                          'assets/39.png',
+                          fit: BoxFit.contain,
+                          height: 11.16 * SizeConfig.heightMultiplier,
+                          ))
                       ],
                     ),
                   ),
@@ -63,9 +69,9 @@ class MenuScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(vertical:10.0,horizontal: 30),
+        padding: EdgeInsets.symmetric(vertical:1.116 * SizeConfig.heightMultiplier,horizontal: 7.23637 * SizeConfig.widthMultiplier),
         child: Container(
-          height: 100,
+          height: 11.16 * SizeConfig.heightMultiplier,
           width: double.infinity,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -73,11 +79,11 @@ class MenuScreen extends StatelessWidget {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                        const Text('My Home',style: TextStyle(fontWeight: FontWeight.bold)),
-                        const SizedBox(height: 5,),
+                          Text('My Home',style: TextStyle(fontSize:1.5625 * SizeConfig.heightMultiplier,fontWeight: FontWeight.bold)),
+                          SizedBox(height: 0.558 * SizeConfig.heightMultiplier,),
                         Container(                            
-                        height: 10,
-                        width: 10,
+                        height: 1.116 * SizeConfig.heightMultiplier,
+                        width: 2.4154 * SizeConfig.widthMultiplier,
                         decoration: const BoxDecoration(                        
                         shape: BoxShape.circle,
                         color: Colors.black
@@ -85,12 +91,16 @@ class MenuScreen extends StatelessWidget {
                         ),
                         ],
                       ),
-                      Icon(Icons.search_outlined,color: Colors.black54,size: 40,),
-                      Icon(Icons.map_outlined,color: Colors.black54,size: 40,),
-                      const CircleAvatar(
-                              radius: 15,
-                              backgroundImage: AssetImage('assets/man.jpeg') ,
-                            )
+                      Icon(Icons.search_outlined,color: Colors.black54,size: 4.4642 * SizeConfig.heightMultiplier,),
+                      Icon(Icons.map_outlined,color: Colors.black54,size: 4.4642 * SizeConfig.heightMultiplier,),
+                       Container(
+                         height: 3.5714 * SizeConfig.heightMultiplier,
+                         width: 7.7294 * SizeConfig.widthMultiplier,
+                         child: CircleAvatar(
+                                radius: 20,
+                                backgroundImage: AssetImage('assets/man.jpeg') ,
+                              ),
+                       )
             ],),
         ),
       ),
@@ -110,7 +120,7 @@ class WeatherCardScroll extends StatelessWidget {
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 30.0),
+            padding: EdgeInsets.only(left: 7.24637 * SizeConfig.widthMultiplier),
             child: GestureDetector(
               onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context){return WeatherScreen();}));},
               child: WeatherCard(place: 'New York',temp: '23°',imgurl: 'assets/8.png',)),
@@ -118,7 +128,7 @@ class WeatherCardScroll extends StatelessWidget {
           GestureDetector(
             onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context){return WeatherScreen();}));},
             child: Padding(
-              padding: const EdgeInsets.only(left: 30.0),
+              padding: EdgeInsets.only(left: 7.24637 * SizeConfig.widthMultiplier),
               child: WeatherCard(place: 'London',temp: '30°',imgurl: 'assets/27.png',),
             ),
           ),
